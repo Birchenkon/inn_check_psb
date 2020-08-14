@@ -5,7 +5,7 @@ from PyQt5.QtCore import pyqtSignal, QObject
 from PyQt5.QtWidgets import QMainWindow, QApplication, QTextEdit, QPushButton, QLabel
 from PyQt5.QtGui import QFont
 
-from input_check_test import is_inn
+from inn_check import input_check_test
 
 
 class Communicate(QObject):
@@ -80,7 +80,7 @@ class App(QMainWindow):
         text = self.textbox.toPlainText()
         # print(text)
         # собираем списки с инн и с ошибками
-        list_for_culc, list_error = is_inn(text)
+        list_for_culc, list_error = input_check_test.is_inn(text)
         print(' Для дальнейших расчетов : ', list_for_culc, '\n', 'Ошибки : ', list_error)
         # очищаем после расчетов --> мб и не нужно если есть clear
         # self.clear_text()
